@@ -185,7 +185,7 @@ l.ID_Skena = s.ID_Skena and s.ID_Skena = 4
 
 
 --Procedura te ruajtura
---1. Krijoni një stored procedure qe shfaq detajet e kompanise ne baze te inputit qe eshte emri i CEO.
+--1. Krijoni njÃ« stored procedure qe shfaq detajet e kompanise ne baze te inputit qe eshte emri i CEO.
 create procedure
 getKompaniaByCEO(@CEO varchar(30))
 as 
@@ -245,30 +245,6 @@ BEGIN
 END
 
 EXEC GetPagesa @RezervimiID = 8
-
-
-
-
-
-
---Query gjat mbrojtjes
---1
-select t.QR_Code, t.Rregullt, t.VIP 
-from Tiketa t
-
---2
-select t.QR_Code, p.Emri, p.Mbiemri
-from Publiku p , Blerja b, Tiketa t
-where p.Nr_Leternjoftimit = b.Nr_Leternjoftimit and b.QR_Code = t.QR_Code
-
---3
-select s.ID_Skena, count(p.EmriArtistik) as [numri i performuesve]
-from Skena s inner join Performuesi p
-on  s.ID_Skena = p.ID_Skena
-group by s.ID_Skena
-
-select * from Skena
-select * from Performuesi
 
 
 
